@@ -23,7 +23,7 @@ class IndexController extends Controller
     public function __invoke(Request $request, Factory $factory)
     {
 
-        $tweets = Tweet::all();
+        $tweets = Tweet::orderBy('created_at', 'DESC')->get();
         // Laravel独自のヘルパー関数。dumn,dieの頭文字で、その場で処理を中断して変数の内容などを出力する
         // dd($tweets);
 
