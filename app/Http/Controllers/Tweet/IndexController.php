@@ -4,6 +4,7 @@ namespace App\Http\Controllers\Tweet;
 
 use App\Http\Controllers\Controller;
 use App\Models\Tweet;
+use App\Services\TweetService;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\View;
 use Illuminate\View\Factory;
@@ -20,10 +21,16 @@ class IndexController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function __invoke(Request $request, Factory $factory)
+    public function __invoke(Request $request, Factory $factory, TweetService $tweetService)
     {
 
-        $tweets = Tweet::orderBy('created_at', 'DESC')->get();
+        // TweetServiceのインスタンスを作成
+        // $tweetService = new TweetService();
+        // つぶやきの一覧を取得
+        $tweets = $tweetService->getTweets();
+
+        // いつものやり方
+        // $tweets = Tweet::orderBy('created_at', 'DESC')->get();
         // Laravel独自のヘルパー関数。dumn,dieの頭文字で、その場で処理を中断して変数の内容などを出力する
         // dd($tweets);
 
