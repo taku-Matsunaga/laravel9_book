@@ -1,5 +1,7 @@
 <?php
 
+use App\Http\Controllers\Sample\IndexController;
+use App\Http\Controllers\Tweet\IndexController as TweetIndexController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -16,3 +18,9 @@ use Illuminate\Support\Facades\Route;
 Route::get('/', function () {
     return view('welcome');
 });
+
+// ::はstaticメソッドと呼ばれ、newのようにインスタンス化することなくクラスの関数を呼び出せる
+Route::get('/sample', [IndexController::class, 'show']);
+Route::get('/sample/{id}', [IndexController::class, 'showId']);
+
+Route::get('/tweet', TweetIndexController::class);
