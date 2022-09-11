@@ -26,4 +26,9 @@ class Tweet extends Model
     // 対応するカラム名を指定
     // const CREATED_AT = 'creation_date';
     // const UPDATED_AT = 'updated_date';
+
+    public function user()
+    {
+        return $this->belongsTo(User::class);
+    }
 }
