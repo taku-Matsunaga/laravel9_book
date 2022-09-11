@@ -36,6 +36,9 @@ class RouteServiceProvider extends ServiceProvider
             Route::middleware('web')
                 ->group(base_path('routes/web.php'));
         });
+
+        // tweetIdに整数値のみ渡されるグローバルルール
+        Route::pattern('tweetId', '[0-9]+');
     }
 
     /**
