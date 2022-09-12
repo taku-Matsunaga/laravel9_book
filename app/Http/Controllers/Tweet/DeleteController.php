@@ -28,7 +28,9 @@ class DeleteController extends Controller
         // $tweet->delete();
 
         // 直接主キーを指定して削除するやり方
-        Tweet::destroy($tweetId);
+        // Tweet::destroy($tweetId);
+
+        $tweetService->deleteTweet($tweetId);
 
         return redirect()
             ->route('tweet.index')

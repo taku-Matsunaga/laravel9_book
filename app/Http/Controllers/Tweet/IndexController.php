@@ -28,6 +28,8 @@ class IndexController extends Controller
         // $tweetService = new TweetService();
         // つぶやきの一覧を取得
         $tweets = $tweetService->getTweets();
+        // dump($tweets);
+        // app(\App\Exceptions\Handler::class)->render(request(),throw new \Error('dump report.'));
 
         // いつものやり方
         // $tweets = Tweet::orderBy('created_at', 'DESC')->get();
